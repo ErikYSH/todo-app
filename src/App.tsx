@@ -1,4 +1,4 @@
-import React, { FormEventHandler, useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import InputForm from "./component/InputForm";
 import ShowList from "./component/ShowList";
