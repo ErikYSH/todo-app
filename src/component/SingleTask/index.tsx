@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Task } from "../Task";
 import { RiEditBoxLine, RiDeleteBin4Line } from "react-icons/ri";
 import { GrStatusGood, GrTask } from "react-icons/gr";
@@ -34,12 +34,19 @@ const SingleTask = ({ task, taskList, setTaskList }: Props) => {
     setEdit(false);
   }
 
+  const inputEL = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    inputEL.current?.focus()
+  }, [edit])
+
   return (
     <div>
       <form className="singleTodo" onSubmit={(e) => handleEdit(e, task.id)}>
 
         {edit ? (
           <input
+            ref = {inputEL}
             value={editTask}
             onChange = {(e) => setEditTask(e.target.value)}
 
