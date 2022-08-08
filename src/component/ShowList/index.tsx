@@ -20,7 +20,7 @@ const ShowList: React.FC<Props> = ({ taskList, setTaskList }: Props) => {
         onChange={(e) => {
           setSearch(e.target.value);
         }}
-      />
+      /> 
 
       {taskList.filter((task)=> {
         if (search === "") {
