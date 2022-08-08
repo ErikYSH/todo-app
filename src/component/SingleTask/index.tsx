@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { Task } from "../Task";
 import { RiEditBoxLine, RiDeleteBin4Line } from "react-icons/ri";
 import { GrStatusGood, GrTask } from "react-icons/gr";
+import "./index.css"
 
 interface Props {
   task: Task;
@@ -42,10 +43,11 @@ const SingleTask = ({ task, taskList, setTaskList }: Props) => {
 
   return (
     <div>
-      <form className="singleTodo" onSubmit={(e) => handleEdit(e, task.id)}>
+      <form className="singleTask" onSubmit={(e) => handleEdit(e, task.id)}>
 
         {edit ? (
           <input
+          className="editInput"
             ref = {inputEL}
             value={editTask}
             onChange = {(e) => setEditTask(e.target.value)}

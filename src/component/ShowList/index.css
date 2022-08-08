@@ -1,0 +1,8 @@
+.showList {
+    /* border: 1px solid black;  */
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+

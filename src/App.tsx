@@ -17,7 +17,7 @@ const App: React.FC = () => {
     }
   };
 
-  console.log(taskList);
+
   return (
     <div className="App">
       <h1 className="header">Todo App</h1>
