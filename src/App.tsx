@@ -9,6 +9,7 @@ const App: React.FC = () => {
   const [task, setTask] = useState<string>("");
   const [taskList, setTaskList] = useState<Task[]>([]);
 
+
   const handleSubmit = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     if (task) {

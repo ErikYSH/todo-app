@@ -2,12 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { Task } from "../Task";
 import { RiEditBoxLine, RiDeleteBin4Line } from "react-icons/ri";
 import { GrStatusGood, GrTask } from "react-icons/gr";
-import "./index.css";
+import "./index.css"
 
 interface Props {
   task: Task;
   taskList: Task[];
   setTaskList: React.Dispatch<React.SetStateAction<Task[]>>;
+  
 }
 
 const SingleTask = ({ task, taskList, setTaskList }: Props) => {
@@ -26,31 +27,32 @@ const SingleTask = ({ task, taskList, setTaskList }: Props) => {
     setTaskList(taskList.filter((task) => task.id !== id));
   };
 
-  const handleEdit = (e: React.FormEvent, id: number) => {
+  const handleEdit = (e:React.FormEvent, id:number) => {
     e.preventDefault();
-    setTaskList(
-      taskList.map((task) =>
-        task.id === id ? { ...task, task: editTask } : task
-      )
+    setTaskList(taskList.map((task)=> (
+        task.id === id ?  {...task, task:editTask}:task
+    ))
     );
     setEdit(false);
-  };
+  }
 
-  const inputEL = useRef<HTMLInputElement>(null);
+  const inputEL = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    inputEL.current?.focus();
-  }, [edit]);
+    inputEL.current?.focus()
+  }, [edit])
 
   return (
     <div>
       <form className="singleTask" onSubmit={(e) => handleEdit(e, task.id)}>
+
         {edit ? (
           <input
-            className="editInput"
-            ref={inputEL}
+          className="editInput"
+            ref = {inputEL}
             value={editTask}
-            onChange={(e) => setEditTask(e.target.value)}
+            onChange = {(e) => setEditTask(e.target.value)}
+
           />
         ) : task.isComplete ? (
           <s className="singleTaskText">{task.task}</s>
