@@ -11,7 +11,6 @@ interface Props {
 const ShowList: React.FC<Props> = ({ taskList, setTaskList }: Props) => {
   const [search, setSearch] = useState("");
   const [complete, setComplete] = useState("");
-  
 
   return (
     <div className="showList">
@@ -24,21 +23,17 @@ const ShowList: React.FC<Props> = ({ taskList, setTaskList }: Props) => {
         }}
       />
 
-      <div>
+      <div className="showList__container">
         <h2>Active</h2>
         {taskList
           .filter((task) => {
-            if (search === "" && task.isComplete === false) {
+            if (search === "") {
               return task;
             } else if (task.task.toLowerCase().includes(search.toLowerCase())) {
               return task;
-            } 
-            if (task.isComplete === false) {
-                return task
-            } 
+            }
           })
           .map((task) => (
-            
             <SingleTask
               task={task}
               taskList={taskList}
@@ -46,21 +41,22 @@ const ShowList: React.FC<Props> = ({ taskList, setTaskList }: Props) => {
             />
           ))}
       </div>
-      <h2>Completed</h2>
-      {taskList
-        .filter((task) => {
-          if (task.isComplete === true) {
-            return task;
-          }
-        })
-        .map((task) => (
-          <SingleTask
-            task={task}
-            taskList={taskList}
-            setTaskList={setTaskList}
-          />
-        ))}
-      <div></div>
+      <div className="showList__container">
+        <h2>Completed</h2>
+        {taskList
+          .filter((task) => {
+            if (task.isComplete === true) {
+              return task;
+            }
+          })
+          .map((task) => (
+            <SingleTask
+              task={task}
+              taskList={taskList}
+              setTaskList={setTaskList}
+            />
+          ))}
+      </div>
     </div>
   );
 };
