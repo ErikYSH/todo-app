@@ -3,7 +3,6 @@ import "./App.css";
 import InputForm from "./component/InputForm";
 import ShowList from "./component/ShowList";
 import {Task} from "./component/Task";
-import TaskData from "./models/TasksData.json"
 import { DragDropContext, DropResult } from 'react-beautiful-dnd'
 
 
@@ -13,12 +12,6 @@ const App: React.FC = () => {
   const [taskList, setTaskList] = useState<Task[]>([]);
   const [complete, setComplete] = useState<Task[]>([])
 
-  const data = () => {
-    TaskData.map((task)=> {
-      // task.task
-      return task.task
-    })
-  }
 
 
 

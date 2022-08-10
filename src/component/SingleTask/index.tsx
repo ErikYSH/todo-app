@@ -3,7 +3,6 @@ import { Task } from "../Task";
 import { RiEditBoxLine, RiDeleteBin4Line } from "react-icons/ri";
 import { GrStatusGood } from "react-icons/gr";
 import "./index.css";
-import TaskData from "../../models/TasksData.json";
 import { Draggable } from "react-beautiful-dnd";
 
 interface Props {
